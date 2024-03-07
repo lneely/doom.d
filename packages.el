@@ -10,6 +10,9 @@
 ;; (package! some-package)
 
 (package! all-the-icons)
+(package! mouse+)
+(package! wand)
+(package! acme-mouse)
 
 ;; To install a package directly from a remote git repo, you must specify a
 ;; `:recipe'. You'll find documentation on what `:recipe' accepts here:

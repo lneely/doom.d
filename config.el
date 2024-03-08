@@ -84,8 +84,19 @@
 (setq deft-directory "~/Documents/notes")
 (setq deft-default-extension "org")
 (after! org
+  (setq org-stuck-projects
+        '("+proj-done-hold-maybe/-DONE" ("STRT" "TODO") nil
+          "SCHEDULED:\\|DEADLINE:"))
+  (setq org-tags-exclude-from-inheritance '("proj" "maybe" "done" "hold"))
+  (setq org-todo-keywords
+        '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
+          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
+  (setq org-agenda-todo-keywords
+        '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
+          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
   (setq org-hide-leading-stars nil
         org-startup-indented nil))
+
 (remove-hook 'org-mode-hook #'org-superstar-mode)
 (setq focus-follows-mouse t)
 (setq mouse-autoselect-window t)

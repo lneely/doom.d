@@ -21,8 +21,8 @@
 ;; See 'C-h v doom-font' for documentation and more examples of what they
 ;; accept. For example:
 ;;
-(setq doom-font (font-spec :family "Go Mono" :size 18 :weight 'regular)
-      doom-variable-pitch-font (font-spec :family "Go" :size 20))
+(setq doom-font (font-spec :family "Fira Mono" :size 18 :weight 'regular)
+      doom-variable-pitch-font (font-spec :family "Fira Sans" :size 20))
 ;;
 ;; If you or Emacs can't find your font, use 'M-x describe-font' to look them
 ;; up, `M-x eval-region' to execute elisp code, and 'M-x doom/reload-font' to
@@ -89,3 +89,5 @@
 (remove-hook 'org-mode-hook #'org-superstar-mode)
 (setq focus-follows-mouse t)
 (setq mouse-autoselect-window t)
+
+(setq vterm-shell "/usr/local/plan9/bin/rc")

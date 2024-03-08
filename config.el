@@ -90,4 +90,4 @@
 (setq focus-follows-mouse t)
 (setq mouse-autoselect-window t)
 
-(setq vterm-shell "/usr/local/plan9/bin/rc")
+(map! "s-<mouse-2>" #'sh-execute-region)

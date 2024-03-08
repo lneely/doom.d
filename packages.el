@@ -12,7 +12,6 @@
 (package! all-the-icons)
 (package! mouse+)
 (package! wand)
-(package! acme-mouse)
 (package! repeat)
 
 ;; To install a package directly from a remote git repo, you must specify a

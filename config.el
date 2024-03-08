@@ -83,3 +83,9 @@
 
 (setq deft-directory "~/Documents/notes")
 (setq deft-default-extension "org")
+(after! org
+  (setq org-hide-leading-stars nil
+        org-startup-indented nil))
+(remove-hook 'org-mode-hook #'org-superstar-mode)
+(setq focus-follows-mouse t)
+(setq mouse-autoselect-window t)

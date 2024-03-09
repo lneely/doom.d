@@ -102,3 +102,9 @@
 (setq mouse-autoselect-window t)
 
 (map! "s-<mouse-2>" #'sh-execute-region)
+
+(setq display-buffer-base-action '(display-buffer-below-selected))
+(setq edwina-keymap-prefix (kbd "SPC w"))
+(edwina-mode 1)
+
+(edwina-setup-dwm-keys 'super)

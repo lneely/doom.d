@@ -104,7 +104,14 @@
 (map! "s-<mouse-2>" #'sh-execute-region)
 
 (setq display-buffer-base-action '(display-buffer-below-selected))
-(setq edwina-keymap-prefix (kbd "SPC w"))
+(setq edwina-keymap-prefix (kbd "C-w"))
 (edwina-mode 1)
 
 (edwina-setup-dwm-keys 'super)
+
+(setq rcirc-server-alist
+      '(("irc.sdf.org" :channels
+         ("#sdf" "#anonradio")
+         :port 6667 :encription tls)))
+
+(setq fill-column 72)

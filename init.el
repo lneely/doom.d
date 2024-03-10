@@ -53,7 +53,7 @@
        zen               ; distraction-free coding or writing
 
        :editor
-       evil              ; come to the dark side, we have cookies (evil +everywhere)
+       ;;evil              ; come to the dark side, we have cookies (evil +everywhere)
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        (format +onsave)  ; automated prettiness
@@ -183,7 +183,7 @@
 
        :app
        ;;calendar
-       ;;emms
+       emms
        everywhere        ; *leave* Emacs!? You must be joking
        ;;irc               ; how neckbeards socialize
        ;;(rss +org)        ; emacs as an RSS reader

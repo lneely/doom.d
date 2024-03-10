@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-solarized-dark-high-contrast)
+(setq doom-theme 'doom-zenburn)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -84,6 +84,7 @@
 (setq deft-directory "~/Documents/notes")
 (setq deft-default-extension "org")
 (after! org
+  (setq org-archive-location "%s_archive::datetree/")
   (setq org-stuck-projects
         '("+proj-done-hold-maybe/-DONE" ("STRT" "TODO") nil
           "SCHEDULED:\\|DEADLINE:"))

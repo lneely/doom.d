@@ -96,10 +96,13 @@
         '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
           (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
   (setq org-hide-leading-stars nil
-        org-startup-indented nil))
+        org-startup-indented nil)
+  (setq org-mouse-1-follows-link nil))
+
 
 (remove-hook 'org-mode-hook #'org-superstar-mode)
 (setq focus-follows-mouse t)
+(setq mouse-1-click-follows-link nil)
 (setq mouse-autoselect-window t)
 
 (map! "s-<mouse-2>" #'sh-execute-region)

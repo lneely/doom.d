@@ -104,10 +104,6 @@
 (map! "s-<mouse-2>" #'sh-execute-region)
 
 (setq display-buffer-base-action '(display-buffer-below-selected))
-(setq edwina-keymap-prefix (kbd "C-w"))
-(edwina-mode 1)
-
-(edwina-setup-dwm-keys 'super)
 
 (setq rcirc-server-alist
       '(("irc.sdf.org" :channels

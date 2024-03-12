@@ -168,3 +168,4 @@
       :localleader
       "$" 'org-timestamp
       "%" 'org-timestamp-inactive)
+

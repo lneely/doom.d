@@ -169,3 +169,15 @@
       "$" 'org-timestamp
       "%" 'org-timestamp-inactive)
 
+(defun region-as-argument-to-command (cmd)
+  (interactive "sCommand: ")
+  (shell-command
+   (format
+    "%s %s"
+    cmd
+    (shell-quote-argument
+     (buffer-substring (region-beginning)
+                       (region-end))))))
+
+(require 'wand)
+(prefer-coding-system 'utf-8)

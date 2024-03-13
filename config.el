@@ -88,7 +88,7 @@
   (setq org-stuck-projects
         '("+proj-done-hold-maybe/-DONE" ("STRT" "TODO") nil
           "SCHEDULED:\\|DEADLINE:"))
-  (setq org-tags-exclude-from-inheritance '("proj" "maybe" "done" "hold"))
+  (setq org-tags-exclude-from-inheritance '("proj"))
   (setq org-todo-keywords
         '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
           (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
@@ -97,7 +97,11 @@
           (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
   (setq org-hide-leading-stars nil
         org-startup-indented nil)
-  (setq org-mouse-1-follows-link nil))
+  (setq org-mouse-1-follows-link nil)
+  (setq org-agenda-custom-commands
+        '(("n" "Next Actions"
+           ((tags-todo "+@work-hold")
+            (tags-todo "+@home-hold"))))))
 
 
 (remove-hook 'org-mode-hook #'org-superstar-mode)

@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-material)
+(setq doom-theme 'doom-zenburn)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -185,7 +185,8 @@
 (require 'wand)
 (prefer-coding-system 'utf-8)
 
-(setq word-wrap nil)
+(setq word-wrap -1)
+
 (defun buffer-file-name-with-line (&optional buffer)
   (replace-regexp-in-string ":Line " ":" (concat (buffer-file-name buffer) ":" (what-line) "\n")))
 
@@ -202,5 +203,4 @@
  "=" 'show-file-name)
 
 (setq global-ligature-mode 1)
-
-
+(remove-hook! (prog-mode text-mode conf-mode special-mode) #'visual-line-mode)

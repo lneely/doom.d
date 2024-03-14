@@ -106,10 +106,9 @@
 
 (remove-hook 'org-mode-hook #'org-superstar-mode)
 (setq focus-follows-mouse t)
-(setq mouse-1-click-follows-link nil)
+(setq mouse-1-click-follows-link t)
 (setq mouse-autoselect-window t)
-
-(map! "s-<mouse-2>" #'sh-execute-region)
+(global-set-key [mouse-3] #'ffap-at-mouse)
 
 (setq display-buffer-base-action '(display-buffer-below-selected))
 
@@ -185,3 +184,20 @@
 
 (require 'wand)
 (prefer-coding-system 'utf-8)
+
+(setq word-wrap nil)
+(defun buffer-file-name-with-line (&optional buffer)
+  (replace-regexp-in-string ":Line " ":" (concat (buffer-file-name buffer) ":" (what-line) "\n")))
+
+(defun show-file-name ()
+  "Gets the name of the file the current buffer is based on."
+  (interactive)
+  (setq fpath (buffer-file-name-with-line (window-buffer (minibuffer-selected-window))))
+  (with-current-buffer
+      (get-buffer-create "temp")
+    (insert fpath)))
+
+(map!
+ :leader
+ "=" 'show-file-name)
+

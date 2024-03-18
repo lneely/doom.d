@@ -90,11 +90,9 @@
           "SCHEDULED:\\|DEADLINE:"))
   (setq org-tags-exclude-from-inheritance '("proj"))
   (setq org-todo-keywords
-        '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
-          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
+        '((sequence "WAIT(w)" "TODO(t)" "|" "DONE(d)" "KILL(k)")))
   (setq org-agenda-todo-keywords
-        '((sequence "TODO(t)" "STRT(s)" "WAIT(w)" "HOLD(h)" "PROJ(p)" "|" "DONE(d)" "KILL(k)")
-          (sequence "[ ](T)" "[-](S)" "[?](W)" "|" "[X](D)")))
+        '((sequence "WAIT(w)" "TODO(t)" "|" "DONE(d)" "KILL(k)")))
   (setq org-hide-leading-stars nil
         org-startup-indented nil)
   (setq org-mouse-1-follows-link nil)
@@ -108,7 +106,6 @@
 (setq focus-follows-mouse t)
 (setq mouse-1-click-follows-link t)
 (setq mouse-autoselect-window t)
-(global-set-key [mouse-3] #'ffap-at-mouse)
 
 (setq display-buffer-base-action '(display-buffer-below-selected))
 
@@ -204,3 +201,36 @@
 
 (setq global-ligature-mode 1)
 (remove-hook! (prog-mode text-mode conf-mode special-mode) #'visual-line-mode)
+
+;; backups and autosaves
+(setq backup-directory-alist `(("~/.emacs/backup" . "~/.emacs/saves")))
+(setq backup-by-copying t)
+(setq delete-old-versions t
+      kept-new-versions 10
+      kept-old-versions 5
+      version-control t)
+
+;; plumbing hack
+(defun plumb ()
+  (interactive)
+  (region-as-argument-to-command "plumb"))
+(global-set-key [S-mouse-3] #'plumb)
+(global-set-key [mouse-3] #'ffap-at-mouse)
+
+(edwina-mode 1)
+
+
+(c-add-style "openbsd"
+             '("bsd"
+               (c-backspace-function . delete-backward-char)
+               (c-syntactic-indentation-in-macros . nil)
+               (c-tab-always-indent . nil)
+               (c-hanging-braces-alist
+                (block-close . c-snug-do-while))
+               (c-offsets-alist
+                (arglist-cont-nonempty . *)
+                (statement-cont . *))
+               (indent-tabs-mode . t)
+               (tab-width 4)))
+
+(setq-hook! 'c-mode-hook +format-with :none)

@@ -235,3 +235,7 @@
 
 (setq-hook! 'c-mode-hook +format-with :none)
 
+(setq doom-leader-key "SPC")
+(map! :map override
+      "s-SPC" #'doom/leader        ; super + space (dwm doesn't play nice with meta)
+      :leader "l" #'doom/leader)  ; SPC l

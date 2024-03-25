@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-zenburn)
+(setq doom-theme 'doom-solarized-light)
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -197,7 +197,8 @@
 
 (map!
  :leader
- "=" 'show-file-name)
+ "=" 'show-file-name
+ "e" 'edwina-mode)
 
 (setq global-ligature-mode 1)
 (remove-hook! (prog-mode text-mode conf-mode special-mode) #'visual-line-mode)
@@ -217,7 +218,6 @@
 (global-set-key [S-mouse-3] #'plumb)
 (global-set-key [mouse-3] #'ffap-at-mouse)
 
-(edwina-mode 1)
 
 
 (c-add-style "openbsd"
@@ -234,3 +234,4 @@
                (tab-width 4)))
 
 (setq-hook! 'c-mode-hook +format-with :none)
+

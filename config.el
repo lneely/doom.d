@@ -197,8 +197,9 @@
 
 (map!
  :leader
- "=" 'show-file-name
- "e" 'edwina-mode)
+ "=" #'show-file-name
+ "e" #'edwina-mode
+ "M" #'emms)
 
 (setq global-ligature-mode 1)
 (remove-hook! (prog-mode text-mode conf-mode special-mode) #'visual-line-mode)
@@ -217,8 +218,6 @@
   (region-as-argument-to-command "plumb"))
 (global-set-key [S-mouse-3] #'plumb)
 (global-set-key [mouse-3] #'ffap-at-mouse)
-
-
 
 (c-add-style "openbsd"
              '("bsd"
